@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
+import '../App.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -192,34 +192,7 @@ function App() {
             <button type="submit">Publier</button>
           </form>
 
-          <h2>Publications</h2>
-          {posts.length === 0 ? (
-            <p>Aucun post pour l'instant.</p>
-          ) : (
-            posts.map(post => (
-              <div key={post.id} className="post">
-                <img src={post.image_url} alt={post.caption} style={{ maxWidth: '300px' }} />
-                <p>{post.caption}</p>
-                <small>Par <b>{user.username}</b> - {new Date(post.created_at).toLocaleString()}</small>
-                <button onClick={() => handleLike(post.id)}>J’aime</button>
-                <div>
-                  <h3>Commentaires</h3>
-                  {comments.filter(c => c.post_id === post.id).map(comment => (
-                    <p key={comment.id}>{comment.content} (par #{comment.user_id})</p>
-                  ))}
-                  <form onSubmit={handleCommentSubmit(post.id)}>
-                    <input
-                      type="text"
-                      value={newComment[post.id] || ''}
-                      onChange={handleCommentChange(post.id)}
-                      placeholder="Ajouter un commentaire"
-                    />
-                    <button type="submit">Commenter</button>
-                  </form>
-                </div>
-              </div>
-            ))
-          )}
+          
         </>
       )}
     </div>
