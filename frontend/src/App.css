@@ -1,33 +1,289 @@
+/* Style global */
+body {
+  background-color: #fafafa;
+}
 .App {
   text-align: center;
   padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-form {
-  margin-bottom: 20px;
+h1 {
+  color: #262626;
 }
 
-input {
-  margin: 5px;
-  padding: 5px;
-  width: 200px;
+/* Style pour Login */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-button {
-  padding: 5px 10px;
-  background-color: #007bff;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  width: 94%;
+  max-width: 38vw;
+  padding: 12px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fafafa;
+  outline: none;
+}
+
+.login-form input:focus {
+  border-color: #E1306C;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #E1306C;
   color: white;
   border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-form button:hover {
+  background-color: #C13584;
+}
+
+.login-form button[type="button"] {
+  background-color: #dbdbdb;
+  color: #262626;
+}
+
+.login-form button[type="button"]:hover {
+  background-color: #c7c7c7;
+}
+
+/* Style pour Feed */
+.feed-header {
+  margin-bottom: 30px;
+}
+
+.feed-header p {
+  font-size: 18px;
+  color: #262626;
+}
+
+.post-form {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.post-form input {
+  width: 95%;
+  max-width: 48vw;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fafafa;
+}
+
+.post-form input:focus {
+  border-color: #0095f6;
+}
+
+.post-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #E1306C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.post-form button:hover {
+  background-color: #C13584;
+}
+
+/* Style commun pour les posts */
+.post {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.post img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.post p {
+
+  margin: 10px 0;
+  font-size: 16px;
+  color: #262626;
+}
+
+.post small {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.post .like-count {
+  font-weight: bold;
+  color: #262626;
+  margin: 5px 0;
+}
+
+.post button {
+  padding: 8px 15px;
+  background-color: #E1306C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.post button:hover {
+  background-color: #C13584;
+}
+
+/* Style pour la section commentaires */
+.comment-section {
+  margin-top: 15px;
+}
+
+.comment-section h3 {
+  font-size: 14px;
+  color: #8e8e8e;
+  margin-bottom: 10px;
+}
+
+.comment-section p {
+  max-width: 62vw;
+  font-size: 14px;
+  background-color: #fafafa;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: #262626;
+  margin: 5px 0;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-form input {
+  width: 96%;
+  max-width: 59vw;
+  padding: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+.comment-form input:focus {
+  border-color: #E1306C;
+}
+
+.comment-form button {
+  padding: 8px 15px;
+  background-color: #E1306C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.comment-form button:hover {
+  background-color: #C13584;
 }
 
-.post {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px auto;
-  max-width: 400px;
+/* Style spécifique pour Profile */
+.profile-header {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-header p {
+  margin: 0;
+  font-size: 18px;
+  color: #262626;
+}
+
+.profile-header button {
+  padding: 8px 15px;
+  background-color: #dbdbdb;
+  color: #262626;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profile-header button:hover {
+  background-color: #c7c7c7;
+}
+
+.profile-footer {
+  max-width: 600px;
+  margin: 30px auto 20px;
+  text-align: center;
+}
+
+.logout-button {
+  padding: 12px 20px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}
+
+/* Liens */
+a {
+  color: #0095f6;
+  text-decoration: none;
+  margin: 0 10px;
 }
