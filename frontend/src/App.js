@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={!user ? <Login setUser={setUser} /> : <Navigate to="/feed" />} />
         <Route path="/feed" element={user ? <Feed user={user} /> : <Navigate to="/" />} />
+        <Route path="/feed" element={user ? <Feed user={user} /> : <Navigate to="/" />} />
         <Route path="/profile" element={user ? <Profile user={user} /> : <Navigate to="/" />} />
       </Routes>
     </div>

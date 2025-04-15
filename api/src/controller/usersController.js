@@ -1,6 +1,7 @@
 const client = require('../config/db');
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
+ 
 const saltRounds = 10;
 
 exports.createUser = async (req, res) => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../profile.css';
 
 function Profile({ user }) {
   const [myPosts, setMyPosts] = useState([]);
@@ -54,38 +55,57 @@ function Profile({ user }) {
 
   return (
     <div>
-      <div className="profile-header">
-        <p>Profil de {user.username}</p>
-        <Link to="/feed">Retour</Link>
-      </div>
-      <h2>Mes publications</h2>
-      {myPosts.length === 0 ? (
-        <p>Vous n’avez pas encore publié.</p>
-      ) : (
-        myPosts.map(post => (
-          <div key={post.id} className="post">
-            <img src={post.image_url} alt={post.caption} />
-            <p>{post.caption}</p>
-            <small>{new Date(post.created_at).toLocaleString()}</small>
-            <p className="like-count">{likes.find(l => l.post_id === post.id)?.like_count || 0} J’aime</p>
-            <div className="comment-section">
-              <h3>Commentaires</h3>
-              {comments.filter(c => c.post_id === post.id).map(comment => (
-                <p key={comment.id}>{comment.content} <small>(par {comment.username})</small></p>
-              ))}
-              <form className="comment-form" onSubmit={handleCommentSubmit(post.id)}>
-                <input
-                  type="text"
-                  value={newComment[post.id] || ''}
-                  onChange={handleCommentChange(post.id)}
-                  placeholder="Ajouter un commentaire"
-                />
-                <button type="submit">Commenter</button>
-              </form>
+      <section className="profile-description">
+        <div className="container">
+          <div className="profile-text">
+            <div className="profile-name">
+              <span><b>{user.username}</b></span>
+              <Link to="/feed">Retour au feed</Link>
             </div>
           </div>
-        ))
-      )}
+          <br />
+          <div className="profile-info">
+            <p><strong>{myPosts.length}</strong> publications</p>
+          </div>
+          <div className="clear"></div>
+        </div>
+      </section>
+
+      <section className="feed">
+        <div className="container">
+          <div className="line-feed">
+            <div tab="publish" className="single-line-name active">
+              <div className="line-mark"></div>
+              <p>Publications</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="publish">
+        <div className="container">
+          {myPosts.length === 0 ? (
+            <p>Vous n’avez pas encore publié.</p>
+          ) : (
+            myPosts.map(post => (
+              <div
+                key={post.id}
+                className="publish-single"
+                style={{ backgroundImage: `url(${post.image_url})` }}
+              >
+                <div className="post-overlay">
+                  <p className="like-count">
+                    {likes.find(l => l.post_id === post.id)?.like_count || 0} J’aime
+                  </p>
+                  <button onClick={() => handleLike(post.id)}>J’aime</button>
+                </div>
+              </div>
+            ))
+          )}
+          <div className="clear"></div>
+        </div>
+      </section>
+
       <div className="profile-footer">
         <button className="logout-button" onClick={handleLogout}>Se déconnecter</button>
       </div>
